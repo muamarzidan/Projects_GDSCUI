@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');  
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    max-width: 90%;
+}
+
+
+.main-button{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-button button{
+    width: 150px;
+    height: 50px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+.main-button #count-plus{
+    background-color: rgb(28, 193, 6);
+}
+
+.main-button #count-minus{
+    background-color: rgb(193, 6, 6);
+}
+
+#number-counter{
+    color: black;
+    font-size: 8rem;
+    text-align: center;
+}
