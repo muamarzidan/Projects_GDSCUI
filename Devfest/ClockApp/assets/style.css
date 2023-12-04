@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
 body {
+    width: 100%;
     height: 100vh;
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -14,90 +15,61 @@ body {
     color: #ffffff;
 }
 
+.main {
+    width: 50%;
+    height: 50%;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
 #clock {
-    font-size: 75px;
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: -10px;
-    margin-top: -10px;
+    font-size: 10rem;
 }
 
 #date {
-    font-size: 15px;
-    position: relative;
     color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: -10px;
-    margin-left: 45px;
+    font-size: 1rem;
+    text-align: center;
 }
 
-#youtube{
-    background-color: #ff0000;
-    color: #fff;
-    font-size: 18px;
-    padding: 21px 30px;
+form {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
     border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    background-image: url('https://i.pinimg.com/originals/de/1c/91/de1c91788be0d791135736995109272a.png');
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s ease;
-}
-#youtube:hover {
-    transform: scale(1.1);
 }
 
-#google
-{
-    background-color: #ffffff;
-    color: #fff;
-    font-size: 18px;
-    padding: 21px 30px;
+form input {
+    width: 100%;
+    height: 50px;
+    border-radius: 18px;
     border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    background-image: url('https://th.bing.com/th/id/OIP.S3ZsU5iH6e3Z2K7lXlES7AHaFj?w=225&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7');
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s ease;
-}
-#google:hover {
-    transform: scale(1.1);
-}
-#github
-{
-    background-color: #000000;
-    color: #fff;
-    font-size: 18px;
-    padding: 21px 30px;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    background-image: url('./img/Made\ with\ Motionleap.gif');
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s ease;
+    font-size: 1rem;
+    padding-left: 20px; 
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    -ms-border-radius: 18px;
+    -o-border-radius: 18px;
 }
 
-#copyright
-{
-    color:rgb(88, 86, 86);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    margin: 8px;
-    font-size: 13px;
+input::placeholder {
+    color: #676767;
+    font-size: 1rem;
+    padding-left: 20px;
+    text-align: center;
 }
-#search-form {
-    margin-left: -25px;
-    padding: 10px;
-    border-radius: 5px;
-}
-#search-bar{
-    height: 30px;
-    width: 300px;
-    padding: 4px;
-    border-radius: 20px;
-    border: none;
-}
+
+
+
