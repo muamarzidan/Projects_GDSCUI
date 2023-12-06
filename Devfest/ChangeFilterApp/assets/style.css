@@ -104,14 +104,3 @@ canvas {
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-
-/* #Purple, #Grey {
-    transition: transform 0.2s ease;
-    cursor: pointer;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 10px;
-}
-#Purple:hover, #Grey:hover {
-    transform: scale(0.9);
-} */
