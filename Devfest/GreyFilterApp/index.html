@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreyFilterApp</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+</head>
+<body>
+    <h1>Change Filter App</h1>
+    <div class="main">
+        <canvas id="canvas1"></canvas>
+        <div class="main-operation">
+            <div class="operation-input">
+                <input type="file" accept="image" multiple="false" id="fileInput" onchange="upload()">
+            </div>
+            <div class="operation-color">
+                <h3>Convert Color To</h3>
+                <button id="button-purple" onclick="convertPurple()">Purple</button>
+                <button id="button-grey" onclick="convertGrey()">Grey</button>
+                <button id="button-red" onclick="convertRed()">Red</button>
+                <button id="button-green" onclick="convertGreen()">Green</button>
+                <button id="button-blue" onclick="convertBlue()">Blue</button>
+            </div>
+        </div>
+        <canvas id="canvas2"></canvas>
+
+    </div>
+    <script src="./assets/main.js"></script>
+</body>
+</html>
