@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     clearAllBtn.addEventListener("click", function () {
         taskList.innerHTML = "";
-        localStorage.removeItem("tasks"); 
+        localStorage.removeItem("tasks");
     });
 
     taskForm.addEventListener("submit", function (event) {
@@ -32,12 +32,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const taskText = document.createElement("span");
         taskText.textContent = taskContent;
 
-        const actions = document.createElement("div");
-        actions.classList.add("actions");
+        const action = document.createElement("div");
+        action.classList.add("action");
 
         const markDoneBtn = document.createElement("button");
         markDoneBtn.classList.add("markDoneBtn");
-        markDoneBtn.textContent = " Done";
+        markDoneBtn.textContent = "Done";
         markDoneBtn.addEventListener("click", function () {
             taskText.classList.toggle("completed");
             saveTasksToLocalStorage();
@@ -51,15 +51,15 @@ document.addEventListener("DOMContentLoaded", function () {
             saveTasksToLocalStorage();
         });
 
-        actions.appendChild(markDoneBtn);
-        actions.appendChild(deleteBtn);
+        action.appendChild(markDoneBtn);
+        action.appendChild(deleteBtn);
 
         taskItem.appendChild(taskText);
-        taskItem.appendChild(actions);
+        taskItem.appendChild(action);
         taskList.appendChild(taskItem);
         taskList.parentNode.appendChild(clearAllBtn);
 
-        saveTasksToLocalStorage(); 
+        saveTasksToLocalStorage();
     }
 
     function saveTasksToLocalStorage() {
@@ -75,5 +75,5 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    loadTasksFromLocalStorage(); 
+    loadTasksFromLocalStorage();
 });
