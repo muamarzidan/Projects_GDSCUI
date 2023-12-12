@@ -18,14 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (taskContent !== "") {
             addTask(taskContent);
             taskInput.value = "";
-
-            saveTasksToLocalStorage();
         } else {
             alert("Please enter a task!");
         }
     });
 
-    function addTask(taskContent) {
+    function addTask(taskContent, isCompleted = false) {
         const taskItem = document.createElement("li");
         taskItem.classList.add("task");
 
@@ -35,6 +33,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const action = document.createElement("div");
         action.classList.add("action");
 
+        if (isCompleted) {
+            taskText.classList.add("completed");
+        }
+
         const markDoneBtn = document.createElement("button");
         markDoneBtn.classList.add("markDoneBtn");
         markDoneBtn.textContent = "Done";
@@ -42,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             taskText.classList.toggle("completed");
             saveTasksToLocalStorage();
         });
+        
 
         const deleteBtn = document.createElement("button");
         deleteBtn.classList.add("deleteBtn");
@@ -63,15 +66,24 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function saveTasksToLocalStorage() {
-        const tasks = document.querySelectorAll(".task span");
-        const tasksContent = Array.from(tasks).map(task => task.textContent);
-        localStorage.setItem("tasks", JSON.stringify(tasksContent));
+        const tasks = document.querySelectorAll(".task");
+        const tasksStatus = [];
+
+        tasks.forEach(task => {
+            const taskText = task.querySelector("span");
+            const isCompleted = taskText.classList.contains("completed");
+            tasksStatus.push({ content: taskText.textContent, isCompleted });
+        });
+
+        localStorage.setItem("tasks", JSON.stringify(tasksStatus));
     }
 
     function loadTasksFromLocalStorage() {
-        const tasksContent = JSON.parse(localStorage.getItem("tasks"));
-        if (tasksContent) {
-            tasksContent.forEach(taskContent => addTask(taskContent));
+        const tasksStatus = JSON.parse(localStorage.getItem("tasks"));
+        if (tasksStatus) {
+            tasksStatus.forEach(taskStatus => {
+                addTask(taskStatus.content, taskStatus.isCompleted);
+            });
         }
     }
 
