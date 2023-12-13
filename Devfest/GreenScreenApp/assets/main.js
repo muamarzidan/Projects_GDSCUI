@@ -1,4 +1,4 @@
-function displayInputImage() {
+function showGreenImage() {
     const inputImage = document.getElementById('inputImage').files[0];
     const inputPreview = document.getElementById('inputPreview');
 
@@ -11,20 +11,20 @@ function displayInputImage() {
     }
 }
 
-function displayBackgroundImage() {
+function showBackgroundImage() {
     const backgroundImage = document.getElementById('backgroundImage').files[0];
     const backgroundPreview = document.getElementById('backgroundPreview');
 
     if (backgroundImage) {
-        const bgImg = new Image();
-        bgImg.onload = function () {
+        const newImageBackground = new Image();
+        newImageBackground.onload = function () {
             backgroundPreview.style.backgroundImage = `url(${URL.createObjectURL(backgroundImage)})`;
         };
-        bgImg.src = URL.createObjectURL(backgroundImage);
+        newImageBackground.src = URL.createObjectURL(backgroundImage);
     }
 }
 
-function mergeImages() {
+function gabungGambar() {
     const inputImage = document.getElementById('inputImage').files[0];
     const backgroundImage = document.getElementById('backgroundImage').files[0];
 
@@ -36,12 +36,12 @@ function mergeImages() {
         const backgroundPreview = document.getElementById('backgroundPreview');
 
         const inputImg = new Image();
-        const bgImg = new Image();
+        const newImageBackground = new Image();
 
         inputImg.onload = function () {
             inputPreview.style.backgroundImage = `url(${URL.createObjectURL(inputImage)})`;
 
-            bgImg.onload = function () {
+            newImageBackground.onload = function () {
                 backgroundPreview.style.backgroundImage = `url(${URL.createObjectURL(backgroundImage)})`;
 
                 canvas.width = inputImg.width;
@@ -51,7 +51,7 @@ function mergeImages() {
                 const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 const inputPixels = imageData.data;
 
-                ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+                ctx.drawImage(newImageBackground, 0, 0, canvas.width, canvas.height);
                 const backgroundPixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
                 for (let i = 0; i < inputPixels.length; i += 4) {
@@ -66,15 +66,12 @@ function mergeImages() {
                         inputPixels[i + 3] = backgroundPixels[i + 3];
                     }
                 }
-
                 ctx.putImageData(imageData, 0, 0);
             };
-
-            bgImg.src = URL.createObjectURL(backgroundImage);
+            newImageBackground.src = URL.createObjectURL(backgroundImage);
         };
-
         inputImg.src = URL.createObjectURL(inputImage);
     } else {
-        alert('Please select both input and background images.');
+        alert('Please select image files');
     }
 }
