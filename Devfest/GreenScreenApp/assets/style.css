@@ -56,7 +56,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
 }
 
 .image-container input {
@@ -81,14 +80,15 @@ body {
 
 
 button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
+    width: 400px;
     background-color: #1f9100;
     color: #fff;
     font-size: 14px;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
