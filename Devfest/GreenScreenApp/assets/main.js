@@ -1,3 +1,29 @@
+function displayInputImage() {
+    const inputImage = document.getElementById('inputImage').files[0];
+    const inputPreview = document.getElementById('inputPreview');
+
+    if (inputImage) {
+        const inputImg = new Image();
+        inputImg.onload = function () {
+            inputPreview.style.backgroundImage = `url(${URL.createObjectURL(inputImage)})`;
+        };
+        inputImg.src = URL.createObjectURL(inputImage);
+    }
+}
+
+function displayBackgroundImage() {
+    const backgroundImage = document.getElementById('backgroundImage').files[0];
+    const backgroundPreview = document.getElementById('backgroundPreview');
+
+    if (backgroundImage) {
+        const bgImg = new Image();
+        bgImg.onload = function () {
+            backgroundPreview.style.backgroundImage = `url(${URL.createObjectURL(backgroundImage)})`;
+        };
+        bgImg.src = URL.createObjectURL(backgroundImage);
+    }
+}
+
 function mergeImages() {
     const inputImage = document.getElementById('inputImage').files[0];
     const backgroundImage = document.getElementById('backgroundImage').files[0];
@@ -6,19 +32,26 @@ function mergeImages() {
         const canvas = document.getElementById('outputCanvas');
         const ctx = canvas.getContext('2d');
 
-        const img = new Image();
-        const bg = new Image();
+        const inputPreview = document.getElementById('inputPreview');
+        const backgroundPreview = document.getElementById('backgroundPreview');
 
-        img.onload = function () {
-            bg.onload = function () {
-                canvas.width = img.width;
-                canvas.height = img.height;
+        const inputImg = new Image();
+        const bgImg = new Image();
 
-                ctx.drawImage(img, 0, 0);
+        inputImg.onload = function () {
+            inputPreview.style.backgroundImage = `url(${URL.createObjectURL(inputImage)})`;
+
+            bgImg.onload = function () {
+                backgroundPreview.style.backgroundImage = `url(${URL.createObjectURL(backgroundImage)})`;
+
+                canvas.width = inputImg.width;
+                canvas.height = inputImg.height;
+
+                ctx.drawImage(inputImg, 0, 0);
                 const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
                 const inputPixels = imageData.data;
 
-                ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+                ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
                 const backgroundPixels = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
 
                 for (let i = 0; i < inputPixels.length; i += 4) {
@@ -37,10 +70,10 @@ function mergeImages() {
                 ctx.putImageData(imageData, 0, 0);
             };
 
-            bg.src = URL.createObjectURL(backgroundImage);
+            bgImg.src = URL.createObjectURL(backgroundImage);
         };
 
-        img.src = URL.createObjectURL(inputImage);
+        inputImg.src = URL.createObjectURL(inputImage);
     } else {
         alert('Please select both input and background images.');
     }

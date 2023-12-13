@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>GreenScreen App</title>
@@ -7,10 +8,29 @@
 </head>
 
 <body>
-    <input type="file" id="inputImage" accept="image/*">
-    <input type="file" id="backgroundImage" accept="image/*">
-    <button onclick="mergeImages()">Merge Images</button>
-    <canvas id="outputCanvas" width="500" height="500"></canvas>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="image-container">
+                    <p>Select Green Image</p>
+                    <input type="file" id="inputImage" accept="image/*" onchange="displayInputImage()">
+                    <div class="preview" id="inputPreview"></div>
+                </div>
+                <div class="image-container">
+                    <p>Select Background Image</p>
+                    <input type="file" id="backgroundImage" accept="image/*" onchange="displayBackgroundImage()">
+                    <div class="preview" id="backgroundPreview"></div>
+                </div>
+                <button onclick="mergeImages()">Merge Images</button>
+            </div>
+            <div class="col">
+                <div class="result-container">
+                    <h2>Result Image</h2>
+                    <canvas id="outputCanvas" width="500" height="450"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="./assets/main.js"></script>
 </body>
