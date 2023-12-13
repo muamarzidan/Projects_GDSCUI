@@ -70,8 +70,20 @@ button {
     font-size: 1.5rem;
 }
 
+#button-purple:hover {
+    background-color: #401270;
+    color: white;
+    font-size: 1.5rem;
+}
+
 #button-grey {
     background-color: grey;
+    color: white;
+    font-size: 1.5rem;
+}
+
+#button-grey:hover {
+    background-color: #373737;
     color: white;
     font-size: 1.5rem;
 }
@@ -82,14 +94,32 @@ button {
     font-size: 1.5rem;
 }
 
+#button-red:hover {
+    background-color: #740000;
+    color: white;
+    font-size: 1.5rem;
+}
+
 #button-blue {
     background-color: blue;
     color: white;
     font-size: 1.5rem;
 }
 
+#button-blue:hover {
+    background-color: #00008a;
+    color: white;
+    font-size: 1.5rem;
+}
+
 #button-green {
     background-color: green;
+    color: white;
+    font-size: 1.5rem;
+}
+
+#button-green:hover {
+    background-color: #004300;
     color: white;
     font-size: 1.5rem;
 }
