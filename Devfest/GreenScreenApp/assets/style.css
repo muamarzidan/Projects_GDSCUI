@@ -81,7 +81,7 @@ body {
 
 button {
     width: 400px;
-    background-color: #1f9100;
+    background-color: #2fda00;
     color: #fff;
     font-size: 14px;
     cursor: pointer;
@@ -93,10 +93,19 @@ button {
     -moz-border-radius: 8px;
     -ms-border-radius: 8px;
     -o-border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45ea17;
+    background-color: #1d8500;
+}
+
+#delete-button {
+    background-color: #ff0000;
+}
+
+#delete-button:hover {
+    background-color: #800000;
 }
 
 .result-container h2 {

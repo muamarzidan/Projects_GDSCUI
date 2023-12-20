@@ -75,3 +75,14 @@ function gabungGambar() {
         alert('Please select image files');
     }
 }
+
+function hapusGambar() {
+    const inputPreview = document.getElementById('inputPreview');
+    const backgroundPreview = document.getElementById('backgroundPreview');
+    const outputCanvas = document.getElementById('outputCanvas');
+    const ctx = outputCanvas.getContext('2d');
+
+    inputPreview.style.backgroundImage = '';
+    backgroundPreview.style.backgroundImage = '';
+    ctx.clearRect(0, 0, outputCanvas.width, outputCanvas.height);
+}
